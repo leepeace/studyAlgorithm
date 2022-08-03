@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 //SWEA 1210번 Ladder1
 //역으로 출발지에서부터 시작해서 도착지를 찾기
-public class Solution_1210_이해민 {
+public class Solution_1210{
 
 	public static void main(String[] args) throws IOException {
 		
