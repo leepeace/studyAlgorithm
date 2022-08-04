@@ -10,13 +10,11 @@ public class Solution_1873 {
 	static char nowDirection;
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		//BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Scanner sc = new Scanner(System.in);
 		int T;
 		T=sc.nextInt();
 	
 		for(int test_case = 1; test_case <= T; test_case++){
-			//StringTokenizer st = new StringTokenizer(br.readLine());
 			int H = sc.nextInt();//맵의 높이
 			int W = sc.nextInt();//맵의 너비
 
@@ -27,21 +25,24 @@ public class Solution_1873 {
 			}
 			
 			N = sc.nextInt();
-			char[] direction = new char[N];//사용자가 넣을 수 있는 입력의 종류
-			direction = sc.next().toCharArray();
-			
+			char[] command = new char[N];//사용자가 넣을 수 있는 입력의 종류
+			command = sc.next().toCharArray();
 			//입력 끝
 			
-
+			int tankX = 0, tankY = 0;//전차 위치
 			
-			/*
-			 * 	U : 전차가 바라보는 방향을 위쪽으로 바꾸고, 한 칸 위의 칸이 평지라면 위 그 칸으로 이동한다.
-			 *  D  : 전차가 바라보는 방향을 아래쪽으로 바꾸고, 한 칸 아래의 칸이 평지라면 그 칸으로 이동한다.
-			 *	L : 전차가 바라보는 방향을 왼쪽으로 바꾸고, 한 칸 왼쪽의 칸이 평지라면 그 칸으로 이동한다.
-			 *	R : 전차가 바라보는 방향을 오른쪽으로 바꾸고, 한 칸 오른쪽의 칸이 평지라면 그 칸으로 이동한다.
-			 *	S : 전차가 현재 바라보고 있는 방향으로 포탄을 발사한다.
-			 * 
-			 * */
+			for(int i = 0; i < W; i++) {
+				for(int j = 0; j < H; j++) {
+					if(map[i][j] == '^' || map[i][j] == 'v' || map[i][j] == '<' || map[i][j] == '>') {
+						tankX = i;
+						tankY = j;
+						nowDirection = map[i][j];
+					}
+				}
+			}
+			
+			map[tankX][tankY] = '.';
+			
 			/*
 			 * 1. 전차가 이동 시 배열의 범위를 넘어서면 이동하지 않는다.
 			 * 2. shoot인 경우, '*', '#'에 닿거나 배열의 범위를 넘어설때까지 직진한다.
@@ -49,133 +50,77 @@ public class Solution_1873 {
 			 * 3. shoot이 배열의 범위를 넘어서면 아무런 일도 일어나지 않음;
 			 * 
 			 * */
-			int i = 0;
-			int nowX = 0, nowY = 0;//현재 위치
-			
-			while(i < N) {
-				switch (direction[i]) {
-					case 'U':
-						if(checkMove(nowX-1, nowY)) {
-							while(map[nowX-1][nowY] == '.') {
-								if(!checkMove(nowX-1, nowY)) {
-									break;
-								}
-								nowX = nowX - 1;
-							}
-							nowDirection = 'U';
-						}else {
-							checkCharacter(nowX, nowY, map);
+			int[][] delta = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};//상, 하, 좌, 우
+			char[] tankDirection = {'^', 'v', '<', '>'};//상, 하, 좌, 우
+			for(int j = 0; j < command.length; j++) {
+				if(command[j] == 'S') {
+					int tempX = tankX;
+					int tempY = tankY;
+					while(true) {
+						if(checkMovePossbile(tempX, tempY)) {
+							break;
 						}
-						break;
-					case 'D':
-						if(checkMove(nowX+1, nowY)) {
-							while(map[nowX+1][nowY] == '.') {
-								if(!checkMove(nowX+1, nowY)) {
-									break;
-								}
-								nowX = nowX + 1;
-							}
-							nowDirection = 'D';
-						}else {
-							checkCharacter(nowX, nowY, map);
+						if(map[tempX][tempY] == '#') {//강철벽 만난 경우
+							break;
 						}
-						
-						break;
-					case 'L':
-						if(checkMove(nowX, nowY-1)) {
-							while(map[nowX][nowY-1] == '.') {
-								if(!checkMove(nowX, nowY-1)) {
-									break;
-								}
-								nowY = nowY - 1;
-							}
-							nowDirection = 'L';
-						}else {
-							checkCharacter(nowX, nowY, map);
+						if(map[tempX][tempY] == '*') {
+							map[tempX][tempY] = '.';
+							break;
 						}
-						break;
-					case 'R':
-						if(checkMove(nowX, nowY+1)) {
-							while(map[nowX][nowY+1] == '.') {
-								if(!checkMove(nowX, nowY+1)) {
-									break;
-								}
-								nowY = nowY + 1;
+						for(int i = 0; i < tankDirection.length; i++) {
+							if(nowDirection == tankDirection[i]) {
+								tempX += delta[i][0];
+								tempY += delta[i][1];
 							}
-							nowDirection = 'R';
-						}else {
-							checkCharacter(nowX, nowY, map);
 						}
-						break;
-					case 'S':
-						while(true) {
-							//'#'에 닿거나 배열의 범위를 넘어서면 break;
-							if(!checkMove(nowX, nowY) ||  map[nowX][nowY] == '#') {
-								break;
-							}
-							if(map[nowX][nowY] == '*') {
-								map[nowX][nowY] = '.';
-							}else if(map[nowX][nowY] == '.'){
-								if(nowDirection == 'U') {
-									nowX = nowX - 1;
-								}else if(nowDirection == 'D') {
-									nowX = nowX + 1;
-								}else if(nowDirection == 'L') {
-									nowY = nowY - 1;
-								}else if(nowDirection == 'R') {
-									nowY = nowY + 1;
-								}		
-							}else {
-								checkCharacter(nowX, nowY, map);
-							}
-						
-						}
-						break;							
-					default:
-						break;
+						tankX = tempX;
+						tankY = tempY;
+					}	
+				}else if(command[j] == 'U'){
+					nowDirection = '^';
+					if(map[tankX -1][tankY] == '.' && checkMovePossbile(tankX-1, tankY)) {
+						map[tankX][tankY] = '.';
+						tankX = tankX - 1;
+					}
+				}else if(command[j] == 'D') {
+					nowDirection = 'v';
+					if(map[tankX+1][tankY] == '.' && checkMovePossbile(tankX+1, tankY)) {
+						map[tankX][tankY] = '.';
+						tankX = tankX + 1;
+					}
+				}else if(command[j] == 'L') {
+					nowDirection = '<';
+					if(map[tankX][tankY-1] == '.' && checkMovePossbile(tankX, tankY-1)) {
+						map[tankX][tankY] = '.';
+						tankY = tankY - 1;
+					}
+				}else if(command[j] == 'R') {
+					nowDirection = '>';
+					if(map[tankX][tankY+1] == '.' && checkMovePossbile(tankX, tankY+1)) {
+						map[tankX][tankY] = '.';
+						tankY = tankY + 1;
+					}
 				}
-				i++;
-			}
-			
-			for(int l = 0; l < N; l++) {
-				for(int j = 0; j < N; j++) {
-					System.out.print(map[l][j]);
+			}					
+
+			map[tankX][tankY] = nowDirection;
+			for(int i = 0; i < H; i++) {
+				for(int j = 0; j < W; j++) {
+					System.out.print(map[i][j]);
 				}
 				System.out.println();
 			}
-			
 		}//end for
 	}
 	
 	//움직이려는 이동이 배열의 범위를 넘어서는지 확인함
-	public static boolean checkMove(int moveX, int moveY) {
+	public static boolean checkMovePossbile(int moveX, int moveY) {
 		if(moveX >= 0 && moveY < N && moveY >= 0 && moveY < N) {
 			return true;
 		}
 		return false;
 	}
 	
-	public static void checkCharacter(int moveX, int moveY, char[][] gameMap) {
-		switch (gameMap[moveX][moveY]) {
-		case '^':
-			gameMap[moveX][moveY] = ' ';
-			nowDirection = 'U';
-			break;
-		case 'v':
-			gameMap[moveX][moveY] = ' ';
-			nowDirection = 'D';
-			break;
-		case '<':
-			gameMap[moveX][moveY] = ' ';
-			nowDirection = 'L';
-			break;
-		case '>':
-			gameMap[moveX][moveY] = ' ';
-			nowDirection = 'R';
-			break;
-		default:
-			break;
-		}
-	}
+
 	
 }

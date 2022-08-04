@@ -2,6 +2,10 @@ package com.algorithm.swea;
 
 import java.util.Scanner;
 
+/*
+ * swea 문제
+ * 방향을 전환시켜가며 풀어야하는 문제
+ * */
 public class Solution_1954 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -37,11 +41,7 @@ public class Solution_1954 {
 						nowCol = nowCol + dir[i][1]; 
 					}
 				}
-				if(i == dir.length - 1) {
-					i = 0;
-				}else {
-					i++;	
-				}
+				i = (i + 1) % 4;//방향 전환
 			}
 			
 			
