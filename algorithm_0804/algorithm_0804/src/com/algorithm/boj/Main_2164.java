@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 조건 : 제일 위에 있는 카드는 버리고, 그 다음은 카드는 제일 아래로 옮김
  * 문제 유형 : 큐
  * */
-public class Main_2164_이해민 {
+public class Main_2164 {
 	
 	public static void main(String[] args) {
 		Queue<Integer> queue = new LinkedList<Integer>();

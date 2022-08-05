@@ -1,0 +1,38 @@
+package com.algorithm.boj;
+
+import java.util.Scanner;
+
+public class Main_1929_소수구하기 {
+
+	static boolean check[];
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+
+		check = new boolean[m + 1];
+		
+		isPrime(m);
+		
+		for (int i = n; i <= m; i++) {
+			if (check[i] == false) {
+				System.out.println(i);
+			}
+		}
+
+	}
+
+	public static void isPrime(int m) {
+		check[0] = check[1] = true;
+		for (int i = 2; i * i <= m; i++) {
+			if (check[i] == true) {
+				continue;
+			}
+			for (int j = i + i; j <= m; j += i) {
+				check[j] = true;
+			}
+		}
+	}
+
+}

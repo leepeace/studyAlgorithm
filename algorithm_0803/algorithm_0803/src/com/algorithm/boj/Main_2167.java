@@ -40,7 +40,7 @@ public class Main_2167 {
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 			
-			int result = dp[x][y] - dp[i][y] - dp[x][j] + dp[i][j]; 
+			int result = dp[x][y] - dp[i-1][y] - dp[x][j-1] + dp[i-1][j-1];
 			System.out.println(result);
 		}
 		
