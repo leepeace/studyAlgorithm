@@ -1,3 +1,4 @@
+package com.algorithm.boj;
 import java.util.Scanner;
 
 /*

@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Virus implements Serializable{
 	private String name;
 	private int level;
-
+	
 	public Virus() {}
 	
 	public Virus(String name, int level) {
@@ -26,10 +26,12 @@ public class Virus implements Serializable{
 	public void setLevel(int level) {
 		this.level = level;
 	}	
+	
 	public String toString() {
 		StringBuilder sb=new StringBuilder();
 		sb.append(getName()).append("\t")
 		  .append(getLevel());
 		return sb.toString();
 	}
+	
 }

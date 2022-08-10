@@ -14,10 +14,10 @@ public class MainTest {
 		//	코드들을 디버깅 하세요!
 		//
 		System.out.println("10.질병관리(코로나,메르스) =================================");
-		VirusMgr vmgr=new VirusMgrImpl();
+		VirusMgr vmgr= VirusMgrImpl.getInstance();
 		System.out.println();		
 		
-/* //<- 주석 해제 후 작성 : start ////////////////////////////////
+ //<- 주석 해제 후 작성 : start ////////////////////////////////
 		System.out.println("11.코로나19 등록");
 		// 정상 출력 예: 
 		// 11.코로나19 등록
@@ -72,7 +72,7 @@ public class MainTest {
 		vmgr.load(); 
 		for(Virus v : vmgr.search()) System.out.println(v);
 		System.out.println();
-*/ //<- 주석 해제 후 작성 : end /////////////////////////////////
+//<- 주석 해제 후 작성 : end /////////////////////////////////
 		
 		
 

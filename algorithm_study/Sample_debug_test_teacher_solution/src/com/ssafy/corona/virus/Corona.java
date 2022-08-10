@@ -5,8 +5,6 @@ public class Corona extends Virus{
 
 	public Corona(String name, int level, int spreadSpeed) {
 		super(name,level);
-//		setLevel(level);
-//		setName(name);
 		setSpreadSpeed(spreadSpeed);
 	}
 	
@@ -15,8 +13,9 @@ public class Corona extends Virus{
 	}
 	public void setSpreadSpeed(int spreadSpeed) {
 		this.spreadSpeed = spreadSpeed;
-	}	
-	public String toString() {
+	}
+	
+	public String toString(String name) {
 		StringBuilder sb=new StringBuilder();
 		sb.append(super.toString()).append("\t")
 		  .append(getSpreadSpeed());

@@ -1,6 +1,8 @@
 package com.ssafy.corona.virus;
 
-public class Virus {
+import java.io.Serializable;
+
+public class Virus implements Serializable{
 	private String name;
 	private int level;
 
@@ -13,13 +15,13 @@ public class Virus {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	private void setName(String name) {
 		this.name = name;
 	}
 	public int getLevel() {
 		return level;
 	}
-	public void setLevel(int level) {
+	private void setLevel(int level) {
 		this.level = level;
 	}	
 	public String toString() {
