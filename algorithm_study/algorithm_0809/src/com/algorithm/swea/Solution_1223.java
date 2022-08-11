@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
  * 
  * 
  * */
-public class Solution_1223_이해민 {
+public class Solution_1223 {
 	 public static void main(String[] args) throws NumberFormatException, IOException {
 		int T = 10;
 		

@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  * 1. 순서를 고려하기(순열)
  * 2. 배열을 회전시킬때 모서리 값을 저장한 뒤 회전시키기
  * */
-public class Main_17406_이해민 {
+public class Main_17406 {
 	
 	public static int[][] direction = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};//우 하 좌 상
 	public static int N;//행
@@ -78,7 +78,6 @@ public class Main_17406_이해민 {
 		int dir = 0;
 		
 		int[][] edge = {{r-s, c-s}, {r+s, c+s}, {r+s, c-s}, {r+s, c+s}};//지워질 수 있는 모서리 값을 미리 저장
-		
 
 		while(dir < 4) {
 			int temp = num[nowX][nowY];

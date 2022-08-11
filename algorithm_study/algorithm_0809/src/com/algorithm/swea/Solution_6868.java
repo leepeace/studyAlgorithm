@@ -8,7 +8,7 @@ import java.util.Scanner;
  * 
  * */
 
-public class Solution_6868_이해민 {
+public class Solution_6868 {
 	static int size = 9;
 	static boolean[] check = new boolean[size];
 	static int[] card1;//규영이의 카드

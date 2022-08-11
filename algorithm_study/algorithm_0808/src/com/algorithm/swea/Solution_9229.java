@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * 문제 : SWEA 9229 한빈이와 Spot Mart
  * 추가방안 : 백트래킹으로 접근해보기
  * */
-public class Solution_9229_이해민 {
+public class Solution_9229 {
 	
 	static int M, N;
 	static int result;

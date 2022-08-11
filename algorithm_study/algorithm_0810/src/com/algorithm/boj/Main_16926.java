@@ -51,13 +51,13 @@ public class Main_16926 {
 				//배열의 범위를 넘어선 경우
 				if(nextX < 0 || nextY < 0 || nextX < N || nextY < M) {//배열의 인덱스를 넘어선 경우
 					i = (i + 1) % 4;
-					break;
 				}
 				
 				//모서리값을 그 다음 방향의 첫 시작 위치에 셋팅
 				if(nextX == (xy[i][0] + delta[i][0]) && nextY == (xy[i][1] + delta[i][0])) {
 					array[nextX][nextY] = saveValue;
 				}
+				
 				//배열을 회전시킴
 				array[nextX][nextY] = array[nowX][nowY];
 				
@@ -69,8 +69,7 @@ public class Main_16926 {
 			
 			//다음 라운드의 모서리 좌표를 계산함
 			//xy[i][0] += move[i][0];
-			//xy[i][1] += move[i][1];
-			
+			//xy[i][1] += move[i][1];	
 		}//end for
 		
 		
@@ -83,4 +82,9 @@ public class Main_16926 {
 		}
 		
 	}
+	
+	private static void rotate() {
+		
+	}
+	
 }

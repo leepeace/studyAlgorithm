@@ -1,4 +1,4 @@
-package com.algorithm.boj;
+package com.algorithm.boj.recursive;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 문제 : 백준 2563번 색종이
  * 접근 유형 : 100*100 배열 형태에서 색종이에 해당하는 
  * */
-public class Main_2563_이해민 {
+public class Main_2563 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		

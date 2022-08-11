@@ -7,7 +7,7 @@ import java.util.Scanner;
 /*
  * 접근 유형 : 큐
  * */
-public class Main_1158_이해민 {
+public class Main_1158 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

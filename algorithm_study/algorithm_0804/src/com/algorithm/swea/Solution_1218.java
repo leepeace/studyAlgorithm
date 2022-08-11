@@ -3,7 +3,7 @@ package com.algorithm.swea;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Solution_1218_이해민 {
+public class Solution_1218 {
 
 	public static void main(String[] args) {
 		
