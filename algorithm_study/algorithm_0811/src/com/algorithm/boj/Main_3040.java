@@ -6,6 +6,7 @@ import java.util.Scanner;
  * 일곱난쟁이들의 모자 합은 100이 되어야함
  * 접근 유형 : 브루트포스 알고리즘
  * */
+
 public class Main_3040 {
 	
 	private static int[] hat;
@@ -32,6 +33,11 @@ public class Main_3040 {
 		sc.close();
 	}
 
+	/**
+	 * @param count 뽑는 횟수
+	 * @param start 선택한 번호
+	 * @param sum 합
+	 */
 	public static void search(int count, int start, int sum) {
 		if(count == 7 && sum == 100) {
 			for(int i = 0; i < size; i++) {
