@@ -1,4 +1,4 @@
-package com.algorithm.swea;
+package com.algorithm.lessons;
 
 import java.io.BufferedReader;
 import java.io.IOException;
