@@ -6,6 +6,7 @@ import java.util.Scanner;
  * 문제 : 백준 15650 N과 M(2)
  * 접근 유형 : 조합, 백트래킹
  */
+
 public class Main_15650 {
 	static int N, M;
 	static int[] num;
@@ -19,34 +20,40 @@ public class Main_15650 {
 		num = new int[M];
 		visited = new boolean[N+1];
 		
-		backtracking(1, 0);	
-		
-		
-	}
+		backtracking(1, 0);
+
+		sc.close();
+	}//end of main
+	
+	
+	
+	/**
+	 * @param start 현재 뽑을려는 숫자
+	 * @param cnt 뽑은 개수
+	 */
 	private static void backtracking(int start, int cnt) {
-		
+
 		if(cnt == M) {//M개의 수를 전부 뽑은 경우
-			for (int i = 0; i < num.length; i++) {
+			/*for (int i = 1; i <= N; i++) {
+				if(visited[i])
+					System.out.print(i + " ");
+			}*/
+			for (int i = 0; i < M; i++) {
 				System.out.print(num[i] + " ");
 			}
 			System.out.println();
 			return;
 		}
-		
-		for(int i = 1; i <= N; i++) {
-			if(visited[i]) {//이미 방문한 경우 
-				continue;
-			}
-			
-			//현재 수를 뽑은 경우
-			visited[i] = true;
+
+		//star부터 시작하면 중복 호출을 막을 수 있다.
+		for(int i = start; i <= N; i++) {
+			//visited[i] = true;
 			num[cnt] = i;
-			backtracking(i+1, cnt+1);
+			backtracking(i+1,cnt+1);	
 			
-			//현재 수를 뽑지 않은 경우
-			visited[i] = true;
-			backtracking(i+1, cnt);
+			//visited[i] = false;
 		}	
+		return;
 	}
 	
 	
