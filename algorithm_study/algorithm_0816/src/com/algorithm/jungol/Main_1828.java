@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 조건 : Ci는 온도 xi이상, yi이하의 온도에서 보관
  * 유형 : 그리디 알고리즘
  * */
-public class Main_1828_이해민 {
+public class Main_1828 {
 	static class Celsius implements Comparable<Celsius>{
 		int lowCelsiu;//최저보관온도
 		int highCelsius;//최고보관온도

@@ -34,8 +34,7 @@ public class Main_2839 {
 				cnt += N / 5;
 				break;
 			}
-			
-			
+
 			N = N - 3;
 			cnt++;
 		}
@@ -45,6 +44,26 @@ public class Main_2839 {
 		}
 		
 		result = cnt;
+	}
+	
+	private static int calcMinNumOfBag() {
+		int min = Integer.MAX_VALUE;
+		int kilogram_5 = 0;
+
+		//5kg 봉지의 개수를 늘려가며 최솟값 비교
+		while(5 * kilogram_5 <= N) {
+			int temp = N;
+			temp = temp - (temp * 5);
+			if(temp % 3 == 0) {//3으로 나누어 떨어질때만 최소값 비교
+				int kilogram_3 = temp / 3;
+				min = Math.min(min, kilogram_5 + kilogram_3);
+			}
+			kilogram_5++;
+		}
+		
+		if(min == Integer.MAX_VALUE) min = -1;
+		
+		return min;
 	}
 	
 }
