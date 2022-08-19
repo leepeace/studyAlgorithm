@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * 조건 : 걷는다면 X-1 또는 X+1로 이동, 순간이동을 하는 경우에는 2*X의 위치 이동
  * 접근 유형 : bfs
  * */
-public class Main_1697_이해민 {
+public class Main_1697 {
 
 	static class Coordinate{
 		int x;
