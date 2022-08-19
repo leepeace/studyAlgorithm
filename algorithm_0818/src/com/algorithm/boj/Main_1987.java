@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 /*
  * 문제 : 백준 1987번 알파벳
  * 출력 : 말이 지날 수 있는 최대의 칸 수
+ * 접근 방안 : 백트래킹을 이용한 DFS탐색
  * */
 public class Main_1987{
 	private static boolean[] visited = new boolean[26];//방문여부 확인(알파벳을 인덱스로 사용)
@@ -64,6 +65,8 @@ public class Main_1987{
 			if(nextX < 0 || nextY < 0 || nextY >= C || nextX >= R) continue;
 			dfs(nextX, nextY, count+1);
 		}
+		
+		//방문했던 알파벳을 다시 미방문으로 처리
 		visited[board[row][col]-'A'] = false;
 		return;
 	}
