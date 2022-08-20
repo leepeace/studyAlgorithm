@@ -44,7 +44,7 @@ public class CombinationTest01 {
 		
 		//가능한 모든 수에 대해 시도(input배열의 모든 수 시도)
 		//start부터 처리시 중복 수 추출 방지 및 순서가 다른 조합 추출 방지
-		for(int i = 0; i < N; i++) {
+		for(int i = start; i < N; i++) {
 			//start위치부터 처리했으므로 중복체크 필요없음!!
 			
 			//앞쪽에서 선택되지 않았다면 수를 사용
