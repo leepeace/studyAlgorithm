@@ -10,6 +10,6 @@ public class BufferedWriterTest {
 		
 		bw.write("hello world");
 		
-		
+		bw.flush();
 	}
 }

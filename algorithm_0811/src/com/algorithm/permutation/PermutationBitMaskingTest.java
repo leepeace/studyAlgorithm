@@ -37,6 +37,7 @@ public class PermutationBitMaskingTest {
 		
 		if(cnt == R) {
 			totalCnt++;
+			System.out.print(totalCnt+"번째");
 			System.out.println(Arrays.toString(numbers));
 			return;
 		}
@@ -44,9 +45,10 @@ public class PermutationBitMaskingTest {
 		//가능한 모든 수에 대해 시도(input배열의 모든 수 시도)
 		for(int i = 0; i < N; i++) {
 			//시도하는 수가 선택되었는지 판단
-			if((flag & 1<<i)!= 0) {
+			if((flag & (1 << i))!= 0) {
 				continue;
 			}
+			
 			//앞쪽에서 선택되지 않았다면 수를 사용
 			numbers[cnt] = input[i];
 			

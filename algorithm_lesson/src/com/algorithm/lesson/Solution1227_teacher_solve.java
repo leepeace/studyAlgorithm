@@ -1,4 +1,4 @@
-package com.algorithm.lessons;
+package com.algorithm.lesson;
 
 import java.io.BufferedReader;
 import java.io.IOException;

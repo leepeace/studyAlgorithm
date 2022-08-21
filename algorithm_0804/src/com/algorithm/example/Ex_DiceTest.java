@@ -97,7 +97,7 @@ public class Ex_DiceTest {
 		
 		for (int i = start; i <= 6; i++) {
 			numbers[cnt] = i;
-			dice3(cnt+1, i);
+			dice3(cnt+1, i);//수를 중복해서 사용할 수 있으므로, i를 인덱스로 보냄
 		}
 	}
 	

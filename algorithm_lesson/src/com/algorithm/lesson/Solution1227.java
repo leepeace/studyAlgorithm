@@ -1,4 +1,4 @@
-package com.algorithm.swea;
+package com.algorithm.lesson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 /*
  * dfs로 풀어보기
- * 
+ * 2022.08.11
  * */
 public class Solution1227 {
 	static int[][] dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};//상하좌우
