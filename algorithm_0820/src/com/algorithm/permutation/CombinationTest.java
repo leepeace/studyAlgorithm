@@ -36,7 +36,7 @@ public class CombinationTest {
 	private static void combination(int cnt, int start) {
 		if(cnt == R) {
 			totalCount++;
-			//System.out.println(Arrays.toString(numbers));
+			System.out.println(Arrays.toString(numbers));
 			return;
 		}
 		
@@ -46,6 +46,9 @@ public class CombinationTest {
 			numbers[cnt] = input[i];
 			//다음 수를 뽑으러 가기
 			combination(cnt+1, i+1);
+			
+			//중복 조합의 경우 : 중복이 가능하게 뽑기 위해 i를 넘겨줌
+			//combination(cnt+1, i);
 		}
 		
 	}
