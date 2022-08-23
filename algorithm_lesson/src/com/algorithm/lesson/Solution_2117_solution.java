@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /*
- * 완전탐색, 시뮬레이션
- * k <= 20*20
+ * 접근 유형 : 완전탐색, 시뮬레이션, 맨해튼 거리
+ * 조건 : k <= 20*20
+ * 
  * */
 public class Solution_2117_solution {
 	
