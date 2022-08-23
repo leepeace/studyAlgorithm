@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
  * 문제 : 1238 [S/W 문제해결 기본] 10일차 - Contact
  * 접근 유형 : BFS
  */
-public class Solution_1238_이해민 {
+public class Solution_1238 {
 	
 	private static Queue<Integer> queue = new LinkedList<Integer>();
 	private static boolean[] visited;
