@@ -6,7 +6,8 @@ import java.io.InputStreamReader;
 
 /**
  * 문제 : swea 3124 최소스패닝트리
- *
+ * V=10만, E=20만이므로 -> 희소 그래프
+ * 크루스칼 알고리즘, 인접리스트
  */
 public class Solution_3124 {
 	static class Node{
