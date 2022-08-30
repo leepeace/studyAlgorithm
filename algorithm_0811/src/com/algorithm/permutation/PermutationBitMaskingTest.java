@@ -44,7 +44,7 @@ public class PermutationBitMaskingTest {
 		
 		//가능한 모든 수에 대해 시도(input배열의 모든 수 시도)
 		for(int i = 0; i < N; i++) {
-			//시도하는 수가 선택되었는지 판단
+			//시도하는 수가 선택되었는지 판단(이미 선택된 경우)
 			if((flag & (1 << i))!= 0) {
 				continue;
 			}

@@ -46,7 +46,7 @@ public class Solution_2117_solution {
 					for(int K = 1; K <= 40; K++) {
 						int cntHome = 0;
 						for (int h = 0; h < home.size(); h++) {
-							//범위가 k일때, 집들을 전부 카운트한다
+							//범위가 k일때, 집들을 전부 카운트한다(맨해튼 거리 공식)
 							if(Math.abs(home.get(h)[0]-r) + Math.abs(home.get(h)[1]-c) < K) {
 								cntHome++;
 							}

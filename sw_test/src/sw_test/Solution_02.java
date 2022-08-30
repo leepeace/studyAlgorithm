@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 /*헌터 */
+
 public class Solution_02 {
 
 	private static boolean[] visited;
@@ -63,23 +64,30 @@ public class Solution_02 {
 			}
 			
 			//1. 몬스터와 고객의 집 위치를 전부 하나의 배열에 저장함, 이후 배열에 대해 번호 기준으로 정렬함
+			//정렬을 통해 몬스터를 먼저 공격하고, 고객의 집을 방문하는 형태로 정렬할 수 있음
 			//2. dfs를 통해 모든 경우의 수에 대해 탐색함
 			//3. return 시 맨해튼 거리
 			
 			Collections.sort(location);
 			
 			size = location.size();
-			visited = new boolean[size+1];
+			visited = new boolean[size];
 			
 			dfs(0, 0, 0, 0);
 		
 			System.out.println("#" + test_case + " " + result);
 		}
 	}//end of main
+
 	
+	/**
+	 * @param depth 현재 깊이
+	 * @param row 현재 행
+	 * @param col 현재 열
+	 * @param sum 현재 최단 거리 누적 합
+	 */
 	private static void dfs(int depth, int row, int col, int sum) {
-		if(depth == location.size()) {
-			//결과값 갱신
+		if(size == depth) {
 			result = Math.min(result, sum);
 			return;
 		}
@@ -96,6 +104,8 @@ public class Solution_02 {
 		
 	}
 	
+	
+	//맨해튼 거리 공식을 이용하여 좌표간의 거리를 구함
 	private static int getDistance(int startX, int startY, int endX, int endY) {
 		return Math.abs(startX - endX) + Math.abs(startY - endY);
 	}

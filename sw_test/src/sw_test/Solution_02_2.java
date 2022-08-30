@@ -6,11 +6,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+//순서에 대해 순차적으로 방문하기 위해 순열을 사용함
+//이 순서의 경우의 수에 대해 거리를 갱신시키며 구함
 public class Solution_02_2 {
-	private static boolean[] visited;
 	private static int N;
 	private static ArrayList<Pair> location;
-	private static int size;
 	private static int result;
 
 	static class Pair{
@@ -68,6 +68,7 @@ public class Solution_02_2 {
 		//몬스터 먼저 죽이고 고객 방문 해야하기 때문에 가지치기
 		if(current > 0 && !isPossible(output, current)) return;
 		
+		//순열의 순서가 정해짐
 		if(current == output.length) {
 			//현재 정해진 순서에 대해 구하고자 하는 거리를 계산
 			calcuateDistance(output);
@@ -80,6 +81,7 @@ public class Solution_02_2 {
 			output[current] = i;
 			isSelected[i] = true;
 			permutation(output, current+1, isSelected);
+			//재귀 호출 이후 값 원상복구
 			isSelected[i] = false;
 		}
 		
