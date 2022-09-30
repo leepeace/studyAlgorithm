@@ -1,10 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java
 # Edit at https://www.toptal.com/developers/gitignore?templates=java
 
-/Sample_debug_test_myresult/
-/Sample_debug_test_problem/
-/Sample_debug_test_teacher_solution/
-
 ### Java ###
 
 /bin/
