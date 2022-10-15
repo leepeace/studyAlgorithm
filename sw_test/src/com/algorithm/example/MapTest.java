@@ -12,6 +12,7 @@ public class MapTest {
 		map.put(1, "Java");
 		map.put(2, "C++");
 		map.put(3, "python");
+		map.put(4, "GO");
 		
 		Iterator<Integer> keys = map.keySet().iterator();
 		while(keys.hasNext()) {

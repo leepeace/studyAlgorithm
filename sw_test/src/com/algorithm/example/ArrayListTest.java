@@ -30,6 +30,24 @@ public class ArrayListTest {
 		
 		System.out.println("----------------------------");
 		
+		
+		/////////////////ArrayList 깊은 복사///////////////////////
+		ArrayList<Integer> original = new ArrayList<Integer>();
+		original.add(1);
+		original.add(2);
+		original.add(3);
+		
+		ArrayList<Integer> copy = new ArrayList<Integer>();
+		copy.addAll(original);
+		
+		for (Integer data : copy) {
+			System.out.print(data + " ");
+		}
+		System.out.println();
+		System.out.println("----------------------------");
+
+		
+		
 		/////////////ArrayList에서 값을 하나씩 가져와서 배열에 넣는 경우////////
 		List<Integer> num = new ArrayList<Integer>();
 		num.add(1);

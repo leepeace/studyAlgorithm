@@ -18,6 +18,7 @@ public class LISTest2 {
 		int size = 0;
 		for (int i = 0; i < N; i++) {
 			int pos = Arrays.binarySearch(dp, 0, size, arr[i]);
+			
 			if (pos >= 0)
 				continue;
 
