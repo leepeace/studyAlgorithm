@@ -3,6 +3,10 @@ package algorithm.LIS;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*
+ * DP : 이진 검색 활용
+ * 
+ * */
 public class LISTest2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -18,7 +22,7 @@ public class LISTest2 {
 		int size = 0;
 		for (int i = 0; i < N; i++) {
 			int pos = Arrays.binarySearch(dp, 0, size, arr[i]);
-			
+			System.out.println(pos);
 			if (pos >= 0)
 				continue;
 
@@ -27,8 +31,9 @@ public class LISTest2 {
 
 			if (insertPos == size)
 				size++;
-
 		}
+		
+		System.out.println(Arrays.toString(dp));
 		System.out.println(size);
 	}
 }

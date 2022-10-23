@@ -19,8 +19,9 @@ public class DP4_KnapsackTest {
 		}
 		
 		int[][] dp = new int[N+1][W+1];
+		
 		//모든 아이템에 대해서 반복함
-		for (int i = 1; i <= N; i++) {
+		for (int i = 1; i <= N; i++) {//i번 째까지의 물건을 고려했을 때 
 			for (int w = 1; w <= W; w++) {
 				//현 아이템의 무게가 가치테이블을 만들기 위한 무게보다 작거나 같다면
 				//선택 가능하며, 아래 둘 중 최대 가치를 선택한다
@@ -35,6 +36,7 @@ public class DP4_KnapsackTest {
 			}
 		}
 		
+		System.out.println(dp[N][W]);
 	}
 }
 

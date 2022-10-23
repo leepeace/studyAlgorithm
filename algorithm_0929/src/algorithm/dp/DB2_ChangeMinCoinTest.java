@@ -18,8 +18,8 @@ public class DB2_ChangeMinCoinTest {
 		for (int i = 1; i <= money; i++) {
 			int min = INF;
 			min = Math.min(min, dp[i-1]+1);
-			if(i >= 4) min = Math.min(min, dp[i-4]+1);
-			if(i >= 6) min = Math.min(min, dp[i-6]+1);
+			if(i >= 4) min = Math.min(min, dp[i-4]+1);//4원으로 만들 수 있는 금액인 경우
+			if(i >= 6) min = Math.min(min, dp[i-6]+1);//6원으로 만들 수 있는 금액인 경우
 			
 			dp[i] = min;
 		}

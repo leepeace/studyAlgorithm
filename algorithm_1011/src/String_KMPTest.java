@@ -5,9 +5,7 @@ import java.util.ArrayList;
 
 // KMP 알고리즘(Knuth–Morris–Pratt Algorithm) 
 // O(N+M)
-/**
- * @author taeheekim
- */
+
 public class String_KMPTest {
 	public static void main(String[] args) throws Exception {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
